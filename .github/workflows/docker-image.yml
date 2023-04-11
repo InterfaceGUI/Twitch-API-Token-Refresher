@@ -26,7 +26,5 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ${{ env.DOCKERFILE_PATH }}
           push: true
           tags: ghcr.io/${{ github.repository }}/Twtich-API-Token-Refresher:latest
