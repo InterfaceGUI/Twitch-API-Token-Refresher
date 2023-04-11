@@ -3,6 +3,42 @@ This is a Python program based on the Flask architecture for refreshing the Twit
 
 ## install & Setup
 
+### You need to create the Twitch application first
+
+1. Go to the [Twitch Developer Console](https://dev.twitch.tv/console/apps) and create a new application
+
+1. OAuth Redirect URL fill in: `https://localhost/twitch-auth-callback`
+
+1. Write down the `Client ID` and `Client Secret` will be used later.
+
+<br>
+
+### Docker
+
+The ssl folder must be mounted to mount, and The certificate must be named as follows:
+
+* `server.crt`
+
+* `server.key`
+
+Example using docker-compose:
+
+```yml
+version: "3.9"
+
+services:
+  TwitchAPI:
+    image: "ghcr.io/interfacegui/twitch-api-token-refresher:latest"
+    environment:
+      ClientID: "YOUR Twitch APP ID"
+      ClientSecret: "YOUR Twitch APP SECRET"
+      scope: "channel:read:redemptions,user:read:email,channel:read:subscriptions"
+    volumes:
+      - /home/ubuntu/ssl:/app/ssl
+    ports:
+      - "3000:3000"
+```
+
 ## How to use
 
 * Go to `/login`endpoint to Get `Access Token` and `Refresh Token`
