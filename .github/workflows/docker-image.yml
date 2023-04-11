@@ -24,8 +24,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/interfacegui/twitchapi-token-refresher:latest
+        run: |
+              docker build . --tag ghcr.io/InterfaceGUI/twitch-api-token-refresher:latest
+              docker push ghcr.io/InterfaceGUI/twitch-api-token-refresher:latest
