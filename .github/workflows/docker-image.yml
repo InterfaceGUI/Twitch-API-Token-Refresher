@@ -26,5 +26,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}/twitchapi-token-refresher:latest
+          tags: ghcr.io/interfacegui/twitchapi-token-refresher:latest
