@@ -25,5 +25,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-              docker build . --tag ghcr.io/InterfaceGUI/twitch-api-token-refresher:latest
-              docker push ghcr.io/InterfaceGUI/twitch-api-token-refresher:latest
+              docker build . --tag ghcr.io/interfacegui/twitch-api-token-refresher:latest
+              docker push ghcr.io/interfacegui/twitch-api-token-refresher:latest
